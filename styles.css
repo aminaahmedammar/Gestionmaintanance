@@ -1,0 +1,533 @@
+<style>
+
+    body {
+        font-family: Arial, sans-serif;
+        text-align: left;
+        background-color: #f4f4f4;
+        padding: 50px;
+    }
+	
+	#loginPage {
+    
+    background-image: url('ppp.jpg'); /* استبدلي 'background.jpg' بالصورة التي تريدينها */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+
+
+}
+
+#servicesPage, #equipmentPage, #colonnecoelioscopiePage, #FORMULAIREPage {
+    background: none; /* إزالة الخلفية من الصفحات الأخرى */
+}
+    
+    .container {
+        background: white;
+        padding: 20px;
+        width: 300px;
+        margin: auto;
+        border-radius: 10px;
+        
+    }
+    
+    h2 {
+        color: #007BFF;
+    }
+    
+    input, button {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    
+    button {
+        background: #007BFF;
+        color: white;
+        cursor: pointer;
+        border: none;
+    }
+    
+    button:hover {
+        background: #0056b3;
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    ul li {
+        background: #007BFF;
+        color: white;
+        padding: 15px;
+        margin: 5px 0;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    ul li:hover {
+        background: #0056b3;
+    } 
+
+
+
+   
+
+    #demandeMaintenance {
+		/* حاوية عامة لتوسيط المحتوى */
+.container {
+    max-width: 90%;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    text-align: right;
+    direction: rtl;
+}
+
+/* تنسيق العنوان */
+.header {
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 24px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* 🔵 جعل كل جزء في مربع */
+.section-box {
+    background-color: white;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+/* ضبط الحقول داخل السطور */
+p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* جعل المدخلات داخل الصندوق */
+input[type="text"], input[type="date"], textarea {
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* ضبط الجداول */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: right;
+}
+
+/* ضبط مربعات الاختيار */
+input[type="checkbox"] {
+    transform: scale(1.3);
+    margin: 5px;
+}
+
+/* ضبط مربعات النص */
+textarea {
+    width: 100%;
+    height: 100px;
+    resize: none;
+}
+
+/* تنسيق الأزرار */
+button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+ }
+
+#tarificationMaintenance{
+
+/* تنسيق الحاوية */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* تنسيق العناوين */
+h2, h3 {
+    color: #444;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+/* تنسيق المدخلات */
+input[type="text"], input[type="number"] {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* تنسيق الجدول */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 2px solid #444; /* حدود الجدول */
+}
+
+/* تنسيق الخلايا */
+th, td {
+    border: 2px solid #444;
+    padding: 10px;
+    text-align: center;
+}
+
+/* تنسيق رؤوس الجدول */
+th {
+    background-color: #75b1ff;
+    color: white;
+    font-weight: bold;
+}
+
+/* تنسيق الصفوف */
+tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+/* تنسيق زر الرجوع */
+button {
+    margin-top: 15px;
+    padding: 10px 15px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* إخفاء النموذج افتراضيًا */
+.hidden {
+    display: none;
+}
+
+/* تحسين استجابة التصميم */
+@media (max-width: 768px) {
+    input[type="text"], input[type="number"] {
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+}
+}
+
+ 
+ #journalEquipement{
+ 
+ /* تنسيق الحاوية الرئيسية */
+.container {
+    width: 100%;
+    margin: 0;
+    padding: 100px;
+    background: none;
+    box-shadow: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+h2, h3 {
+    text-align: left;
+    color: #333;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 2px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* تنسيق الجدول */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 9px;
+}
+
+table, th, td {
+    border: 5px solid #ddd;
+}
+
+th, td {
+    padding: 20px;
+    text-align: center;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+/* زر الرجوع */
+button {
+    display: block;
+    width: 100px;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+#loginPage{
+    width: 100vw;  /* جعله يأخذ عرض الشاشة بالكامل */
+    height: 100vh; /* جعله يأخذ ارتفاع الشاشة بالكامل */
+    background-image: url('OIP11111.jpg'); /* استبدل باسم الصورة */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#CahierdesCharges {
+	font-family: Arial, sans-serif;
+            margin: 40px;
+            padding: 20px;
+            background-color: #f4f4f4;
+   .container {
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+		
+
+
+
+ }
+ 
+ # ListeformationCoelioscope{
+	.container {
+    max-width: 600px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+
+th {
+    background-color: #007BFF;
+    color: white;
+}
+
+#FormulaireDACCEPTATION {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9; /* 🔵 خلفية الصفحة */
+}
+
+#FormulaireDACCEPTATION .container {
+    width: 60%;
+    margin: auto;
+    border: 2px solid #000000; /* ⬛ إطار أسود */
+    padding: 20px;
+    background-color: #ffffff; /* ⚪ خلفية النموذج */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1); /* ظل خفيف لإعطاء تأثير جميل */
+}
+
+#FormulaireDACCEPTATION h2, 
+#FormulaireDACCEPTATION h3 {
+    text-align: center;
+    color: #003366; /* 💙 لون أزرق داكن للعناوين */
+}
+
+#FormulaireDACCEPTATION .form-group {
+    margin: 10px 0;
+}
+
+#FormulaireDACCEPTATION label {
+    font-weight: bold;
+    display: block;
+    color: #000000; /* ⬛ لون النص */
+}
+
+#FormulaireDACCEPTATION input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    background-color: #eaeaea; /* 🔘 خلفية رمادية فاتحة */
+    color: #000000; /* ⬛ لون النص داخل الحقل */
+}
+
+#FormulaireDACCEPTATION .signature {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#FormulaireDACCEPTATION .signature div {
+    width: 45%;
+}
+
+#FormulaireDACCEPTATION input[readonly] {
+    background-color: #dcdcdc; /* رمادي أفتح للحقول غير القابلة للتعديل */
+    border: 1px solid #a0a0a0;
+}
+ }
+
+
+</style>

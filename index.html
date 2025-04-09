@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="styles.css">
+	
+	
+</head>
+<body>
+
+
+    <!-- Page de Connexion -->
+    <div class="container" id="loginPage">
+        <h2>Connexion</h2>
+        <p>Entrez votre mot de passe :</p>
+        <input type="password" id="password">
+        <button onclick="checkPassword()">Se Connecter</button>
+        <p id="errorMessage" style="color: red;"></p><br><br><br>
+		
+		
+		
+		
+
+
+
+
+
+
+
+
+
+
+    <div class="footer-content">
+        <p>Développé par :<br><br> <span class="dev-name">AHMED AMMAR AMINA CHAIMAA</span></p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/ahmed-ammar-amina-chaimaa-5566a3337" target="_blank">
+                <img src="linkedin.png"  alt="LinkedIn" width= "90"   height="30 " style="  border:border-radius:50%">
+            </a>
+        </div>
+    </div>
+
+
+</body>
+</div>
+    
+	
+	
+
+    <!-- Liste des Services -->
+    <div class="container hidden" id="servicesPage">
+        <h2>Services Médicaux</h2>
+        <ul>
+            <li onclick="showEquipmentMenu()">Bloc Opératoire</li>
+        </ul>
+    </div>
+
+    <!-- Liste Equipment après avoir sélectionné Bloc Opératoire -->
+    <div class="container hidden" id="equipmentPage">
+        <h2>Équipements</h2>
+        <ul>
+            <li onclick="showColonneCoelioscopieMenu()">Équipements de bloc Opératoire</li>
+        </ul>
+    </div>
+
+    <!-- Liste colonne coelioscopie après avoir sélectionné Équipements -->
+    <div class="container hidden" id="colonnecoelioscopiePage">
+        <h2>Colonne Coelioscopie</h2>
+        <ul>
+            <li onclick="showFormulaireMenu()">Colonne Coelioscopie  
+</li>
+        </ul>
+		<div style="display: flex; flex-direction: column; align-items: center; height: auto;">
+		<br> <img src="p1.jpg" alt="Description de l'image">
+    </div>
+	</div>
+    
+    <!-- Liste des formulaires -->
+    <div class="container hidden" id="FORMULAIREPage">
+        <h2>FORMULAIRES</h2>
+        <ul>
+		<li onclick="showForm('CahierdesCharges')">Cahier des Charges</li>
+		<li onclick="showForm('acceptationEquipement')">Formulaire d'Acceptation d'Équipement</li>
+		<li onclick="showForm('tarificationMaintenance')">Formulaire de Tarification colonne coelioscopie</li>
+		<li onclick="showForm('FormulairedeLivraison')">Formulaire de Livraison</li>
+		<li onclick="showForm('FormulairedInstallation')">Formulaire d'Installation</li>
+		<li onclick="showForm('ListeformationCoelioscope')">Liste formation Coelioscope</li>
+			
+		 <li onclick="showForm('journalEquipement')">Journal d'Équipement</li>
+		 
+            <li onclick="showForm('formInspection')">FORMULAIRE D'INSPECTION</li>
+			
+            <li onclick="showForm('demandeMaintenance')">Demande de Maintenance</li>
+            <li onclick="showForm('FormulairedeMaintenance')">Formulaire de Maintenance</li>
+			
+			<h2>analyse de risque </h2>
+			<li onclick="showForm('analyseapieu')">pieu</li>
+			
+			
+			
+			
+			
+            
+			
+			
+   	
+		
+			
+        </ul>
+		
+	  <button onclick="backToFormList()">Retour</button>	 
+    </div>
+
+  
+<!-- Contenu des formulaires -->
+
+<div class="container hidden form-box" id="analyseapieu">
+    <h1>La méthode PIEU </h1>
+    <p style="background-color: white; padding: 15px; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.1); color: black;">
+        <strong>P</strong> – Incidence des pannes : Fiabilité de l’équipement<br>
+        <br><strong>I</strong> – Importance : Impact sur l’activité médicale<br>
+        <br><strong>E</strong> – État : Âge, précision et usure du matériel<br>
+        <br><strong>U</strong> – Utilisation : Fréquence et nombre d’utilisateurs<br>
+    </p>
+
+    <p style="background-color: white; padding: 15px; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.1); color: black;">
+        <strong>Formule :</strong> C = P × I × E × U
+    </p>
+
+    <p><strong>Interprétation :</strong></p>
+    <p style="background-color: white; padding: 15px; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.1); color: black;">
+        <span class="badge critique">C &lt; 1</span> : Critique<br>
+        <span class="badge surveiller">1 ≤ C &lt; 10</span> : À Surveiller<br>
+        <span class="badge noncritique">C ≥ 10</span> : Non Critique
+    </p>
+
+    <h2>Application</h2>
+
+    <div class="form-container">
+        <form id="pieuForm">
+            <label for="p">P – Incidence des pannes :</label>
+            <input type="number" id="p" min="0.01" max="3" step="0.01" required>
+
+            <label for="i">I – Importance de l’équipement :</label>
+            <input type="number" id="i" min="0.01" max="3" step="0.01" required>
+
+            <label for="e">E – État de l’équipement :</label>
+            <input type="number" id="e" min="0.01" max="3" step="0.01" required>
+
+            <label for="u">U – Taux d’utilisation :</label>
+            <input type="number" id="u" min="0.01" max="3" step="0.01" required>
+
+            <button type="button" onclick="calculerPIEU()">Calculer la Criticité</button>
+        </form>
+        <button onclick="backToFormList()">Retour</button>
+    </div>
+
+    <div class="result form-container" id="result" style="display: none;">
+        <p><strong>Score de Criticité (C) :</strong> <span id="scoreC"></span></p>
+        <p><strong>Évaluation :</strong> <span id="evaluation"></span></p>
+    </div>
+
+    <script>
+        function calculerPIEU() {
+            const p = parseFloat(document.getElementById("p").value);
+            const i = parseFloat(document.getElementById("i").value);
+            const e = parseFloat(document.getElementById("e").value);
+            const u = parseFloat(document.getElementById("u").value);
+
+            console.log("Valeurs saisies => P:", p, "I:", i, "E:", e, "U:", u); // pour débug
+
+            if (isNaN(p) || isNaN(i) || isNaN(e) || isNaN(u)) {
+                alert("Veuillez remplir tous les champs avec des valeurs valides.");
+                return;
+            }
+
+            const c = p * i * e * u;
+            let evaluation = "";
+            let badgeClass = "";
+
+            if (c < 1) {
+                evaluation = "Critique";
+                badgeClass = "critique";
+            } else if (c < 10) {
+                evaluation = "À Surveiller";
+                badgeClass = "surveiller";
+            } else {
+                evaluation = "Non Critique";
+                badgeClass = "noncritique";
+            }
+
+            document.getElementById("scoreC").innerText = c.toFixed(3);
+            document.getElementById("evaluation").innerHTML = `<span class="badge ${badgeClass}">${evaluation}</span>`;
+            document.getElementById("result").style.display = "block";
+        }
+
+        function backToFormList() {
+            document.getElementById("analyseapieu").style.display = "none";
+            // ajoute ici ta logique pour afficher le menu principal par exemple
+        }
+    </script>
+</div>
+
+
+
+
+
+<div class="container hidden form-box" id="formInspection">
+    <h1 style="text-align: center;"> FORMULAIRE D'INSPECTION </h1>
+    <hr>
+    <p><strong>📦 Fournisseur :</strong> <input type="text" value="Karl Storz"> 
+	<label>🏭 Fabricant :</label>
+        <input type="text" name="manufacturer" value="Karl Storz" required><br><br>
+       <strong>📅 Date de réception :</strong> <input type="date" value="2022-05-21"></p>
+
+    <p><strong>🛠️ Équipement  :</strong> <input type="text" value="Colonne Coelioscopie CCT"> 
+       <strong>📝 Date d'inspection :</strong> <input type="date" value="2025-01-22"></p>
+
+ 
+    <p><strong>🔢 Numéro de série :</strong> <input type="text" value="6557"> 
+	<strong> numéro d’inventaire :</strong> <input type="text" value="CE626207-H"> 
+       <strong>👨‍🔬 Inspecté par :</strong> <input type="text" value="Technicien Biomédical"></p>
+
+    <h2>🔍 Inspection Physique :</h2>
+    <table border="1">
+        <tr>
+            <td>1️⃣ Y a-t-il des dommages externes à l'équipement / au contenant ?</td>
+            <td>✅ Oui <input type="checkbox"> ❌ Non <input type="checkbox" checked></td>
+        </tr>
+        <tr>
+            <td>2️⃣ Manque-t-il des accessoires ? (ex: câbles, caméra, insufflateur...)</td>
+            <td>✅ Oui <input type="checkbox"> ❌ Non <input type="checkbox" checked></td>
+        </tr>
+        <tr>
+            <td>3️⃣ Y a-t-il des pièces desserrées ou du matériel mal fixé ?</td>
+            <td>✅ Oui <input type="checkbox"> ❌ Non <input type="checkbox" checked></td>
+        </tr>
+        <tr>
+            <td>4️⃣ L'écran et la caméra sont-ils en bon état ?</td>
+            <td>✅ Oui <input type="checkbox" checked> ❌ Non <input type="checkbox"></td>
+        </tr>
+        <tr>
+            <td>5️⃣ Les câbles de connexion sont-ils intacts ?</td>
+            <td>✅ Oui <input type="checkbox" checked> ❌ Non <input type="checkbox"></td>
+        </tr>
+    </table>
+
+    <p><strong>🖊️ Précisions :</strong></p>
+    <textarea placeholder="✏️ Écris tes remarques ici...">Aucune anomalie détectée.</textarea>
+
+    <h2>⚙️ Inspection Opérationnelle :</h2>
+    <table border="1">
+        <tr>
+            <td>🎥 L'image affichée par la caméra est-elle claire et nette ?</td>
+            <td>✅ Oui <input type="checkbox" checked> ❌ Non <input type="checkbox"></td>
+        </tr>
+        <tr>
+            <td>💨 L'insufflateur fonctionne-t-il correctement ?</td>
+            <td>✅ Oui <input type="checkbox" checked> ❌ Non <input type="checkbox"></td>
+        </tr>
+        <tr>
+            <td>💡 La source de lumière est-elle en bon état de fonctionnement ?</td>
+            <td> ✅Oui <input type="checkbox" > ❌ Non <input type="checkbox"checked></td>
+        </tr>
+    </table>
+
+    <p><strong>📌 Autres observations :</strong></p>
+    <textarea placeholder="💭 Ajoute d'autres observations ici...">Tous les composants fonctionnent normalement SOUFE La source de lumière.</textarea>
+
+    <h2>🚨 Problèmes rencontrés :</h2>
+    <textarea placeholder="⚠️ Décris les problèmes rencontrés ici...">UN  problème à La source de lumière.</textarea>
+
+    <h2>📦 État initial de l'équipement et des accessoires :</h2>
+    <p>Est-il satisfaisant ?</p><br>
+    <p>✔️ Oui <input type="checkbox" checked>  </p><p>❌Non <input type="checkbox"></p>
+
+    <p><strong>❌ Si non, préciser :</strong></p>
+    <textarea placeholder="📝 Détails sur les défauts..."></textarea>
+
+    <h2>✅ Approbation de l'Inspection :</h2>
+    <p><strong>✍️ Signature :</strong> <input type="text" value="amina chaimaa ahmed ammar"> 
+       <strong>📅 Date :</strong> <input type="date" value="2025-03-22"></p>
+       
+    <button onclick="backToFormList()">Retour</button>
+</div>
+
+
+
+
+<div class="container hidden form-box" id="demandeMaintenance">
+    <h2>🛠️ Demande de Maintenance - Colonne Coelioscopie</h2>
+    
+    <p><strong>🏥 Hôpital  : </strong> <input type="text" value="/"></p>  
+	
+    <p> <strong> 📅 Date :</strong>  <input type="date" value="2025-03-22"></p>  
+    <p><strong>🏢 Département :</strong> <input type="text" value="Bloc opératoire"></p>  
+    <p><strong>📞 Appel reçu par :</strong> <input type="text" value=" Benabed Abdelwaheb "></p>  
+    <p><strong>🔧 Type d'Instrument :</strong> <input type="text" value="Colonne Coelioscopie"></p>  
+    <p><strong>⏰ Heure d'arrivée :</strong> <input type="time" value="10:30"></p>  
+    <p><strong>🔢 Numéro de série :</strong> <input type="text" value="6557"></p>
+	<p><strong>🔢 Numéro de série :</strong> <input type="text" value="CE626207-H"></p>  
+    <p><strong>🏭 Fabricant :</strong> <input type="text" value="Karl Storz"></p>  
+
+    <h3>⚠️ Problème signalé par le client :</h3>
+    <textarea>UN  problème à La source de lumière.</textarea>  
+
+    
+
+    <h3>📌 Statut de l'instrument :</h3>
+    <p>
+        <input type="checkbox"checked> ✅ Garantie  
+        <input type="checkbox" > 📜 Contrat de service  
+        <input type="checkbox"> ❌ Hors contrat  
+    </p>
+
+    
+
+    <h3>📝 Commentaires de l'ingénieur de maintenance :</h3>
+    <textarea>Après remplacement du lampe au xenon , lumière fonction nourmal .</textarea>  
+
+    <h3>📢 Commentaires du service  :</h3>
+    <textarea>Le problème est résolu, l’appareil fonctionne normalement.</textarea>  
+
+    <h3>✍️ Signatures :</h3>
+    <p><strong>🛠️ Ingénieur de service :</strong> <input type="text" value="Ahmed Ammar Amina Chaimaa"></p>  
+    <p><strong>👤chef service :</strong> <input type="text" value="Dr. masoudi -s"></p>  
+
+    <button onclick="backToFormList()">Retour</button>
+</div>
+
+
+
+
+
+   <div class="container hidden form-box" id="acceptationEquipement">
+    <h2>📄 Formulaire d'Acceptation d'Équipement</h2>
+    <form action="process.php" method="post">
+        
+        <label>👤 Nom du Client :</label>
+        <input type="text" name="customer_name" value="hopital/" required><br><br>
+
+        <label>📍 Adresse :</label>
+        <input type="text" name="address" value="/ Tlemcen, Bloc opératoire" required><br><br>
+
+        <h3>🔧 Détails de l'Équipement</h3>
+        <label>🖥️ Équipement :</label>
+        <input type="text" name="equipment" value="Colonne Coelioscopie" required><br><br>
+<p><label>🔢 Numéro de série :</label> 
+<input type="text" name="numero_de_serie" value="6557"></p>
+
+        <label>🔢 Numéro de Série :</label>
+        <input type="text" name="serial_number" value="CE626207-H" required><br><br>
+
+        <label>🏭 Fabricant :</label>
+        <input type="text" name="manufacturer" value="Karl Storz" required><br><br>
+
+        <label>📅 Période de Garantie :</label><br>
+        De : <input type="date" name="warranty_from" value="2022-05-21">  
+        À : <input type="date" name="warranty_to" value="2027-05-20"><br><br>
+
+        <p>✅ L'équipement mentionné ci-dessus a été  testé et est en état de fonctionnement normal.</p>
+
+        <h3>✍️ Signatures</h3>
+        <label>🛠️ Représentant RMS :</label>
+        <input type="text" name="rms_representative" value="M. Benbed Abdelwaheb" required><br><br>
+
+        <label>👤 CHEF service :</label>
+        <input type="text" name="customer_signature" value="Dr.  masoudi-s" required><br><br>
+
+        
+    </form>
+    
+    <button onclick="backToFormList()">Retour</button>
+</div>
+
+
+
+
+    <div class="container hidden form-box" id="tarificationMaintenance">
+         <h2>📄 Formulaire de Tarification de la Colonne Coelioscopie</h2>
+
+    <div class="form-group">
+        <label>🏥 Hôpital :</label>
+        <input type="text" value="hopital/">
+    </div>
+
+    <div class="form-group">
+        <label>🏨 service :</label>
+        <input type="text" value="Bloc Opératoire">
+    </div>
+
+    <div class="form-group">
+        <label>📅 Date :</label>
+        <input type="date" value="2022-03-22">
+    </div>
+
+    <div class="form-group">
+        <label>👨‍⚕️ Nom du Responsable :</label>
+        <input type="text" value="AHMED AMMAR AMINA CHAIMAA">
+    </div>
+
+    <h3>🛠️ Détails de l'Équipement</h3>
+
+    <div class="form-group">
+        <label>🔍 Type d'Équipement :</label>
+        <input type="text" value="Colonne Coelioscopie">
+    </div>
+
+    <div class="form-group">
+        <label>🏭 Fabricant :</label>
+        <input type="text" value="Karl Storz">
+    </div>
+
+    <div class="form-group">
+        <label>🔢 Numéro de Série :</label>
+        <input type="text" value="CE626207-H">
+    </div>
+
+<div class="form-group">
+        <label>🔢 Numéro d' inventaire :</label>
+        <input type="text" value="6557">
+    </div>
+
+    <div class="form-group">
+        <label>✅ Statut :</label>
+        <input type="text" value="Sous garantie">
+    </div>
+
+    <h3>💰 Détails de la Tarification</h3>
+
+    <table border="1">
+        <tr>
+            <th>📌 Description</th>
+            <th>💵 Prix Unitaire (DA)</th>
+            
+        </tr>
+		<tr>
+		 <td><input type="text" value=" colonne coelioscopie"></td>
+            
+            
+            <td><input type="number" value="1300000" readonly></td>
+        </tr>
+        <tr>
+            <td><input type="text" value="🔧 maintanace "></td>
+            
+            <td><input type="number" value="200000" readonly></td>
+        </tr>
+        <tr>
+            <td><input type="text" value=" formation "></td>
+            
+            
+            <td><input type="number" value="100000" readonly></td>
+        </tr>
+        <tr>
+            <td><input type="text" value=" autre tarification"></td>
+           
+            
+            <td><input type="number" value="100000" readonly></td>
+			
+			
+			</tr>
+        
+		
+    </table>
+
+    <div class="form-group">
+        <label>🧾 Total Général :</label>
+        <input type="number" value="1520000" readonly>
+    </div>
+
+    
+
+
+    <h3>✍️ Signatures</h3>
+	<div class="form-group">
+	<label>👨‍ fournisseur :</label>
+        <input type="text" value="medicatech">
+    </div>
+
+    <div class="form-group">
+        <label>🔧 Responsable de la Maintenance :</label>
+        <input type="text" value="AHMED AMMAR AMINA CHAIMAA">
+    </div>
+    <div class="form-group">
+        <label>👨‍⚕️ CHEF SERVICE :</label>
+        <input type="text" value="Dr. ZEGAN -f">
+    </div>
+
+    <button onclick="backToFormList()">Retour</button>
+</div>
+	
+	
+
+
+   <div class="container hidden form-box" id="journalEquipement">
+    <h2 style="text-align: center;  font-weight: bold; ">📒 Journal d'Équipement 📒</h2>
+    <form id="diaryForm">
+        
+            <legend><b>🔹 Informations Générales 🔹</b></legend>
+            <label><b>Année :</b></label> 
+            <input type="text" name="year" value="2025" required> 📆<br><br>
+
+            <label><b>Hôpital/Clinique :</b></label> 
+            <input type="text" name="hospital" value="Hôpital /" required> 🏥<br><br>
+
+            <label><b>Téléphone :</b></label> 
+            <input type="text" name="phone" value="+213 /" required> 📞<br><br>
+        
+            <legend><b>🔹 Détails de l'Équipement 🔹</b></legend>
+            <label><b>Type d'Équipement :</b></label> 
+            <input type="text" name="equipment_type" value="colonne coelioscopie" required> ⚙️<br><br>
+
+            <label><b>Numéro de Série :</b></label> 
+            <input type="text" name="serial_number" value="CE626207-H" required> 🏷️<br><br>
+			
+			<label><b>Numéro d' inventaire:</b></label> 
+            <input type="text" name="Numéro_d'_inventaire" value="6557" required> 🏷️<br><br>
+
+            <label><b>Fabricant :</b></label> 
+            <input type="text" name="manufacturer" value="KARL STORZ" required> 🏭<br><br>
+
+            <legend><b>🔹 Autres Informations 🔹</b></legend>
+            <label><b>Statut Instrument :</b></label> 
+            <input type="text" name="instrument_status" value="En service"> ✅<br><br>
+
+            
+
+            <label><b>Période de Garantie :</b></label> 
+            <input type="text" name="warranty_period" value="21/05/2022 - 20/05/2027"> 🏅<br><br>
+
+            
+			
+			<label><b>Détails P.P.M :</b></label> 
+            <table border="1">
+        <tr>
+            <th>🔹 Type d’Intervention</th>
+            <th>📅 Date Planifiée</th>
+            <th>👨‍🔧 Technicien Responsable</th>
+            <th>📝 Observations</th>
+        </tr>
+        <tr>
+            <td><input type="text" value="Inspection générale"></td>
+            <td><input type="date" value="2025-05-01"></td>
+            <td><input type="text" placeholder="Nom du technicien"></td>
+            <td><input type="text" placeholder="Remarques..."></td>
+        </tr>
+        <tr>
+            <td><input type="text" value="Nettoyage et calibration"></td>
+            <td><input type="date" value="2025-07-01"></td>
+            <td><input type="text" placeholder="Nom du technicien"></td>
+            <td><input type="text" placeholder="Remarques..."></td>
+        </tr>
+        <tr>
+            <td><input type="text" value="Remplacement des pièces usées"></td>
+            <td><input type="date" value="2025-10-01"></td>
+            <td><input type="text" placeholder="Nom du technicien"></td>
+            <td><input type="text" placeholder="Remarques..."></td>
+        </tr>
+    </table>
+	
+       
+
+        <h3 style="text-align: center; color: #2980B9;">📝 Entrées du Journal 📝</h3>
+        <table border="1" style="width: 100%; text-align: center;">
+            <tr style="background-color: #D5DBDB;">
+                <th>N°</th>
+                <th>Date Visite 📅</th>
+                <th>N° Pièce 🔢</th>
+                <th>Description 📝</th>
+                <th>Qté 🔢</th>
+                <th>Effectué par 👨‍🔧</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><input type="date" name="date_1" value="2025-03-20"></td>
+                <td><input type="text" name="part_1" value="P-45678"></td>
+                <td><input type="text" name="description_1" value="Remplacement de lampe xenon"></td>
+                <td><input type="number" name="qty_1" value="1"></td>
+                <td><input type="text" name="done_by_1" value="Ing. Ahmed Ammar amina chaimaa"></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><input type="date" name="date_2" value="2025-02-15"></td>
+                <td><input type="text" name="part_2" value="C-98765"></td>
+                <td><input type="text" name="description_2" value="Calibration de l'appareil"></td>
+                <td><input type="number" name="qty_2" value="1"></td>
+                <td><input type="text" name="done_by_2" value="Ing. amina chaimaa ahmed ammar "></td>
+            </tr>
+        </table>
+    </form>
+    <br>
+   <button onclick="backToFormList()">Retour</button>
+</div>
+
+
+
+
+
+<div class="container hidden form-box" id="CahierdesCharges">
+    <h2>Cahier des Charges</h2>		 
+		 
+        <h3>1. Généralités</h3>
+        <p><strong>Objet :</strong> Achat et installation d’une colonne de cœlioscopie pour usage chirurgical minimalement invasif.</p>
+        <p><strong>Destinataire :</strong> Service de chirurgie mini-invasive d'un hôpital ou d'une clinique.</p>
+        <p><strong>Normes :</strong> La colonne doit être conforme aux normes CE Médical ISO 13485 et aux réglementations locales en vigueur.</p>
+        <p><strong>Budget :</strong> Le budget alloué est estimé entre 15000000 DA et 15500000 DA, en fonction des configurations et des options choisies.</p>
+        <p><strong>Fournisseurs possibles :</strong> Olympus, Karl Storz, Stryker, Richard Wolf.</p>
+
+        <h3>2. Spécifications Techniques</h3>
+        <table border="1">
+            <tr>
+                <th>Composant</th>
+                <th>Caractéristiques Minimales</th>
+            </tr>
+            <tr>
+                <td><br>Caméra Endoscopique</td>
+                <td><br>Résolution Full HD ou 4K, capteur CMOS, zoom optique x10, autofocus rapide</td><br>
+            </tr>
+            <tr>
+                <td><br>Source Lumineuse</td>
+                <td><br>Technologie LED, intensité réglable, durée de vie 20 000 h, température de couleur ajustable</td>
+            <br></tr>
+            <tr>
+                <td><br>Moniteur Médical</td>
+                <td><br>Écran 27” Full HD ou 4K, connectique HDMI/SDI, protection anti-reflets</td>
+            </tr>
+            <tr>
+                <td><br>Insufflateur CO₂</td>
+                <td><br>Débit ajustable (0-50 L/min), régulation automatique de la pression, alarmes de sécurité intégrées</td>
+            </tr>
+            <tr>
+                <td><br>Enregistrement Vidéo</td>
+                <td><br>Stockage sur USB/NAS, format MP4 et DICOM, compatibilité avec les logiciels hospitaliers</td>
+            </tr>
+            <tr>
+                <td>Accessoires Inclus</td>
+                <td>Trocart, pinces laparoscopiques, optiques 0° et 30°, pompe d’aspiration, support mobile avec roulettes</td>
+            </tr>
+        </table>
+
+        <h3>3. Conditions d’Acquisition</h3>
+        <ul>
+            <th><br>1-Livraison sous 60 jours maximum après validation de la commande.</th><br>
+            <th><br>2-Garantie minimum de 4 ans sur l’ensemble des équipements.</th><br>
+            <th><br>3-Maintenance préventive et corrective incluse pour 3 ans.</th><br>
+            <th><br>4-Formation du personnel médical et biomédical à l’utilisation et à la maintenance.</th><br>
+            <th><br>5-Possibilité d’extension de garantie et d’options de maintenance.</th><br>
+            <th><br>6-Options de financement : achat direct, leasing médical, subventions hospitalières.</th><br>
+            <th><br>7-Service après-vente avec intervention en moins de 48h .</th><br>
+        </ul>
+
+        <h3>4. Formation du Personnel</h3>
+        <ul>
+            <th><br>1-Le fournisseur doit assurer une formation complète pour les médecins et le personnel biomédical.</th><br>
+            <th><br>2-La formation doit inclure l’utilisation, la calibration et l’entretien de la colonne de cœlioscopie.</th><br>
+            <th><br>3-Des supports de formation (manuels, vidéos, démonstrations) doivent être fournis.</th><br>
+            <th><br>4-Une session pratique avec un spécialiste du fournisseur doit être organisée sur site.</th><br>
+            <th><br>5-Possibilité de formations supplémentaires en ligne ou sur demande.</th><br>
+            <th><br>6-Certificat de formation remis aux médecins et techniciens ayant suivi la formation.</th><br>
+        </ul>
+
+        <h3>5. Critères de Sélection</h3>
+        <ul>
+            <th><br>1-Qualité d’image et compatibilité avec les systèmes hospitaliers existants.</th><br>
+            <th><br>2-Fiabilité et support technique du fournisseur, avec intervention rapide.</th><br>
+            <th><br>3-Disponibilité des pièces détachées pendant au moins 10 ans.</th><br>
+            <th><br>4-coût total de possession, y compris l’entretien et les mises à jour.</th><br>
+            <th><br>5-Avis et référencesd’autres établissements de santé ayant déjà utilisé ce type d’équipement.</th>
+        </ul><br>
+
+        <h3>6. Conditions de Garantie et Maintenance</h3><br>
+        <ul>
+            <th>
+1-La garantie couvre toutes les pannes matérielles et logicielles pendant 2 ans minimum.            </th>
+            
+
+			<th><br>2-La maintenance inclut les interventions sur site et le remplacement des pièces défectueuses.</th><br>
+            <th><br>3-Un technicien doit être disponible 24/7 pour les urgences et les réparations critiques.</th><br>
+            <th><br>4-Des mises à jour logicielles gratuites doivent être fournies pendant toute la durée de la garantie.</th><br>
+            <th><br>5-Un contrat de maintenance optionnel doit être proposé après la période de garantie.</th><br>
+            <th><br>6-Le fournisseur doit garantir un délai d’intervention maximum de 48h pour toute panne critique.</th><br>
+            <th><br>7-Une assistance technique en ligne et par téléphone doit être disponible.</th><br>
+        </ul>
+<button onclick="backToFormList()">Retour</button>        
+    </div>
+
+
+
+<div class="container hidden form-box" id="ListeformationCoelioscope">
+    <h2>📋Liste de FORMATION  - maintanace Coelioscope</h2>	
+	 <form>
+            <label for="name">👤 Nom et Prénom :</label>
+            <input type="text" id="name" required>
+
+            <label for="institution">🏥 Institution :</label>
+            <select id="institution" required>
+                <option value="Fabricon Biomedical">ingénieur Biomedical</option>
+                <option value="Médecine">technicien biomedical</option>
+            </select>
+
+            <label for="date">📅 Date de formation :</label>
+            <input type="date" 
+			value="2022-06-21">
+
+            
+        </form>
+
+        <h3>📌 Liste des Stagiaires</h3>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Nom et Prénom</th>
+                    <th>Institution</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amina CHAIMAA AHMED AMMAR</td>
+                    <td>ingénieur Biomedical</td>
+                    <td>21/06/2022</td>
+                </tr>
+                <tr>
+                    <td>BENABED ABDELWAHED</td>
+                    <td>ingénieur biomedical</td>
+                    <td>21/06/2022</td>
+                </tr>
+                <tr>
+                    <td>////</td>
+                    <td>Technicien Biomedical</td>
+                    <td>15/03/2025</td>
+                </tr>
+            </tbody>
+        </table>
+		<button onclick="backToFormList()">Retour</button>
+</div>	
+
+
+
+
+<div class="container hidden form-box" id="FormulairedeMaintenance">
+    <h2 style="text-align: center;  font-weight: bold; ">🛠️ Formulaire de Maintenance 🛠️</h2>
+
+    <form>
+        
+            <legend><b>🔹 Informations Générales 🔹</b></legend>
+            <label><b>Type de machine :</b></label>
+            <input type="text" value="colonne coelioscopie"> ⚙️<br><br>
+
+            <label><b>Fabricant :</b></label>
+            <input type="text" value="Karl STORZ"> 🏭<br><br>
+			
+			<label><b>fournisseur :</b></label>
+            <input type="text" value="medicatech-dz"> 🏭<br><br>
+
+            <label><b>Numéro de série (S.N.) :</b></label>
+            <input type="text" value="CE626207-H"> 🔢<br><br>
+			
+			<label><b>Numéro d'invontaire :</b></label>
+            <input type="text" value="6557"> 🔢<br><br>
+
+            <label><b>Date d'installation :</b></label>
+            <input type="date" value="2022-05-21"> 📆<br><br>
+
+            <label><b>Garantie :</b></label>
+            <input type="text" value="5 ans (jusqu'à 2027)"> 🏅<br><br>
+        
+            <legend><b>🔹  la Maintenance 🔹</b></legend>
+            <
+            <input type="text" value="Maintenance préventive (P.M.)"> 🔧<br><br>
+
+            <label><b>Problème :</b></label>
+            <textarea rows="4">L'écran affiche une erreur , et un probleme à source de lumaire...</textarea> ⚠️<br><br>
+       <h3>🔎 Diagnostic :</h3>
+    <ul>
+        <li><input type="checkbox" checked> Remplacement de l'ampoule par un autre</li>
+        
+		
+    </ul>
+
+    <h3>🔨 Travaux effectués :</h3>
+    <textarea>Vérification des lampes ,Vérification des connexions, alimontation , test de la caméra, changement de câble HDMI.</textarea>  
+
+<h3>🛠️ Nature du travail :</h3>
+    <p>
+        <input type="checkbox"checked > 🛠️ Intervention corrective  
+        <input type="checkbox"> 🏗️ Maintenance préventive  
+    </p>
+
+    <h3>🔩 Pièces de rechange utilisées :</h3>
+    <table border="1" style="width: 100%;">
+        <tr>
+            <th>Réf. Pièce</th>
+            <th>Description</th>
+            <th>Quantité</th>
+            <th>Remarques</th>
+        </tr>
+        <tr>
+            <td>xenon300w </td>
+            <td>lampe au xenon </td>
+            <td><input type="number" min="1" value="1"style="width: 90%;"></td>
+            <td><Remplacé</td>
+        </tr>
+        
+    </table>
+<h3>📝 Commentaires de l'ingénieur de maintenance :</h3>
+    <textarea>Après remplacement du lampe au xenon , lumière fonction nourmal .</textarea>  
+
+    <h3>📢 Commentaires du service  :</h3>
+    <textarea>Le problème est résolu, l’appareil fonctionne normalement.</textarea>  
+
+    <h3>✍️ Signatures :</h3>
+    <p><strong>🛠️ Ingénieur de service :</strong> <input type="text" value="Ahmed Ammar Amina Chaimaa"></p>  
+    <p><strong>👤chef service :</strong> <input type="text" value="Dr. sid ahmed masoudi"></p>  
+        <br>
+       
+        
+    </form>
+	
+	<div style="display: flex; flex-direction: column; align-items: center; height: auto;">
+    <img src="p2.jpg" alt="Image Biomedical" style="margin-bottom: 50px; width: 300px; height: auto;">
+    <img src="p3.jpg" alt="Image Biomedical" style="margin-bottom: 50px; width: 300px; height: auto;">
+    <img src="p4.jpg" alt="Image Biomedical" style="width: 300px; height: auto;">
+</div>
+
+<button onclick="backToFormList()">Retour</button>
+
+
+
+
+
+	
+</div>
+
+
+
+
+<div class="container hidden form-box" id="FormulairedeLivraison">
+    <h2 style="text-align: center;  font-weight: bold; ">📦 Formulaire de Livraison</h2>
+
+        <form>
+            <label>🚛 Nom du Fournisseur :</label>
+            <input type="text" value="Medicatech-DZ" readonly>
+			
+			<label>Fabricant :</label>
+            <input type="text" value="Karl STORZ" readonly>
+
+            <label>🏥 Établissement Récepteur :</label>
+            <input type="text" value="/">
+
+            <label>📅 Date d'achat :</label>
+            <input type="date" value="2022-05-21">
+			
+			<label>📅 Date de Livraison :</label>
+            <input type="date" value="2022-06-21">
+			
+			<label>l'equipment :</label>
+            <input type="text" value="colonne coelioscopie">
+
+            <label>🔢 Numéro de Série :</label>
+            <input type="text" value="CE626207-H" readonly>
+
+            <label>🛠️ Accessoires Inclus :</label>
+            <textarea readonly>Caméra Full HD, Moniteur 32", Source lumineuse Xenon 300W, Pédale de contrôle, Fibre optique</textarea>
+
+            <label>✍️ Réception par :</label>
+            <input type="text" value="AHMED AMMAR AMINA CHAIMAA">
+
+            <label>📜 Remarques :</label>
+            <textarea readonly>Livraison conforme aux spécifications. Aucune anomalie détectée.</textarea>
+
+            <button type="submit">Confirmer la Livraison</button>
+        </form>
+		<img src="p11.png" alt="صورة المستخدم" width="100"><br>
+		
+		<button onclick="backToFormList()">Retour</button>
+    </div>
+
+
+
+
+
+<div class="container hidden form-box" id="FormulairedInstallation">
+    <h2 style="text-align: center;  font-weight: bold; ">📦 🛠️Formulaire d'Installation</h2>
+        
+        <form>
+		 <label>🛠️ Fournisseur :</label>
+            <input type="text" value="Medicatech-DZ" readonly>
+
+ <label>Fabricant:</label>
+            <input type="text" value="Karl STORZ" readonly>
+
+            <label>🏥 Établissement :</label>
+            <input type="text" value="/" readonly>
+
+            <label>📅 Date d'Installation :</label>
+            <input type="date" value="2022-06-21">
+
+           
+            <label>📦 Équipements installés :</label>
+            <textarea readonly>colonne coelioscopie (Caméra Full HD, Moniteur 32", Source lumineuse Xenon 300W, Insufflateur CO₂, Pédale de contrôle)</textarea>
+<label>🔢 Numéro de Série :</label>
+            <input type="text" value="CE626207-H" readonly>
+			
+            <label>🔍 Vérifications effectuées :</label>
+            <ul>
+                <li><input type="checkbox" checked> Connexions électriques et pneumatiques</li>
+                <li><input type="checkbox" checked> Test de la caméra et du moniteur</li>
+                <li><input type="checkbox" checked> Vérification du débit de l’insufflateur CO₂</li>
+                <li><input type="checkbox" checked> Calibration et réglages</li>
+            </ul>
+
+            <label>📜 Remarques :</label>
+            <textarea>Installation conforme, test fonctionnel réussi.</textarea>
+
+            <label>✍️ Ingénieur Biomédical :</label>
+            <input type="text" value="Ahmed Ammar Amina Chaimaa">
+
+            <label>👨‍⚕️ Responsable Bloc :</label>
+            <input type="text" value="Dr. Sid Ahmed Masoudi">
+
+            <button type="submit">Valider l'Installation</button>
+        </form>
+		
+	
+	<div style="display: flex; flex-direction: column; align-items: center; height: auto;">
+    <img src="p5.jpg" alt="Image Biomedical" style="margin-bottom: 50px; width: 300px; height: auto;">
+    <img src="p9.jpg" alt="Image Biomedical" style="margin-bottom: 50px; width: 300px; height: auto;">
+    <img src="p1a0.jpg" alt="Image Biomedical" style="width: 300px; height: auto;">
+</div>
+<button onclick="backToFormList()">Retour</button>	
+    </div>
+	
+	</div>
+
+
+
+    <script>
+        function checkPassword() {
+            const correctPassword = "m1ebm";  
+            const userPassword = document.getElementById("password").value;
+            const errorMessage = document.getElementById("errorMessage");
+            if (userPassword === correctPassword) {
+                document.getElementById("loginPage").classList.add("hidden");
+                document.getElementById("servicesPage").classList.remove("hidden");
+            } else {
+                errorMessage.textContent = "Mot de passe incorrect !";
+            }
+        }
+
+        function showEquipmentMenu() {
+            document.getElementById("servicesPage").classList.add("hidden");
+            document.getElementById("equipmentPage").classList.remove("hidden");
+        }
+
+        function showColonneCoelioscopieMenu() {
+            document.getElementById("equipmentPage").classList.add("hidden");
+            document.getElementById("colonnecoelioscopiePage").classList.remove("hidden");
+        }
+
+        function showFormulaireMenu() {
+            document.getElementById("colonnecoelioscopiePage").classList.add("hidden");
+            document.getElementById("FORMULAIREPage").classList.remove("hidden");
+        }
+
+        function showForm(formId) {
+            document.getElementById("FORMULAIREPage").classList.add("hidden");
+            document.querySelectorAll('.form-box').forEach(form => form.classList.add('hidden'));
+            document.getElementById(formId).classList.remove('hidden');
+        }
+
+        function backToFormList() {
+            document.querySelectorAll('.form-box').forEach(form => form.classList.add('hidden'));
+            document.getElementById("FORMULAIREPage").classList.remove("hidden");
+        }
+		
+		  
+    </script>
+<script src="script.js"></script>
+</body>
+</html>
